@@ -8,6 +8,144 @@
 
 ![Donor List View ](https://lh3.googleusercontent.com/-hpMJXJ5FLG4/X7LoIrCa5II/AAAAAAAAIVA/QvW9D8T3AiU2h9eOGENakTe1-RtW6qi6ACLcBGAsYHQ/s512/DonorListResult%2528webpage%2529png.png)![Donor List Modal View](https://lh3.googleusercontent.com/-czUwC8_wAEE/X7Lods3KI6I/AAAAAAAAIVY/bw4AFDEyVAcuU5tpfHEKOcpn0RG0cjzvACK8BGAsYHg/s512/DonorListModalResult%2528webpage%2529.png)
 
+
+      <!--Button for Modal-->
+      <div class="donorDetails">
+        <button class="iconBtn" data-toggle="modal" data-target="#detailsModal" href="#sitecss" aria-expanded="false" aria-controls="sitecss">
+          <i class="fa fa-info-circle fa-fw"></i>Details
+        </button>
+      </div>
+    </div>
+
+    <!--Display First Name, Last Name, and User Name on the Admin/Donorlist index page-->
+    <table class="table admin-donorlist-table">
+      <tr>
+        <th>
+          @Html.DisplayNameFor(model => model.SubscriberPerson.FirstName)
+        </th>
+        <th>
+          @Html.DisplayNameFor(model => model.SubscriberPerson.LastName)
+        </th>
+        <th>
+          @Html.DisplayNameFor(model => model.SubscriberPerson.UserName)
+        </th>
+        <th></th>
+      </tr>
+
+      @foreach (var item in Model)
+      {
+        <tr>
+          <td>
+            @Html.DisplayFor(modelItem => item.SubscriberPerson.FirstName)
+          </td>
+          <td>
+            @Html.DisplayFor(modelItem => item.SubscriberPerson.LastName)
+          </td>
+          <td>
+            @Html.DisplayFor(modelItem => item.SubscriberPerson.UserName)
+          </td>
+          <td>
+
+            <!--Edit button for specific subscriber-->
+            <button class="iconBtn donorButtons" data-toggle="collapse" onclick="location.href='@Url.Action("subscriber/Edit", "Subscribers", new { id = item.SubscriberId })'">
+              <i class="fa fa-edit fa-fw"></i>@Html.ActionLink("Edit", "../Subscribers/subscriber/Edit", new { id = item.SubscriberId, Style = "color:White" }, null)
+            </button>
+
+            <!--Delete button for specific subscriber-->
+            <button class="iconBtn donorButtons" data-toggle="collapse" onclick="location.href='@Url.Action("subscriber/Delete", "Subscribers", new { id = item.SubscriberId })'">
+              <i class="fa fa-trash-alt fa-fw"></i>@Html.ActionLink("Delete", "../Subscribers/subscriber/Delete", new { id = item.SubscriberId })
+            </button>
+          </td>
+        </tr>
+      }
+    </table>
+
+
+    <!--Modal will display the subscribers name, subscribed (y/n)?, renewed (y/n)?, newsletter (y/n)?, recent-donor (y/n?), last-donation (date), donation amt($), special requests (y/n?), notes (y/n?)-->
+    <!--Set modal sizing-->
+    <div class="donor-modal-container">
+      <div class="modal fade bs-example-modal-xl custom-modal" id="detailsModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl donor-modal" role="document">
+          <div class="modal-content donor-content">
+            <div class="modal-header">
+              <!--Modal Title-->
+              <h5 class="modal-title donor-modal-title" id="exampleModalLabel">Donor Details</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div class="donor-data">
+                <!--Data and Titles displayed in Modal-->
+                <table>
+                  <tr>
+                    <th></th>
+                    <th>
+                      Name &nbsp;
+                    </th>
+                    <th>
+                      Subscribed? &nbsp;
+                    </th>
+                    <th>
+                      Renewed? &nbsp;
+                    </th>
+                    <th>
+                      Newsletter &nbsp;
+                    </th>
+                    <th>
+                      Recent-Donor? &nbsp;
+                    </th>
+                    <th>
+                      Last-Donation &nbsp;
+                    </th>
+                    <th>
+                      Donation &nbsp;
+                    </th>
+                    <th>
+                      Requests? &nbsp;
+                    </th>
+                    <th>
+                      Notes &nbsp;
+                    </th>
+                  </tr>
+
+                  @foreach (var item in Model)
+                  {
+                    <tr>
+                      <th></th>
+                      <td>
+                        @Html.DisplayFor(modelItem => item.SubscriberPerson.FirstName)
+                      </td>
+                      <td>
+                        @Html.DisplayFor(modelItem => item.CurrentSubscriber)
+                      </td>
+                      <td>
+                        @Html.DisplayFor(modelItem => item.HasRenewed)
+                      </td>
+                      <td>
+                        @Html.DisplayFor(modelItem => item.Newsletter)
+                      </td>
+                      <td>
+                        @Html.DisplayFor(modelItem => item.RecentDonor)
+                      </td>
+                      <td>
+                        @Html.DisplayFor(modelItem => item.LastDonated)
+                      </td>
+                      <td>
+                        @Html.DisplayFor(modelItem => item.LastDonationAmt)
+                      </td>
+                      <td>
+                        @Html.DisplayFor(modelItem => item.SpecialRequests)
+                      </td>
+                      <td>
+                        @Html.DisplayFor(modelItem => item.Notes)
+                      </td>
+                    </tr>
+                  }
+                </table>
+          
+
+
 * ### Change Layout of the Change Password Page:
  > I added features and changed the layout of the Change Password page following the project styling and display the form. This form can only be accessed if the user is signed in under a subscribers account. This allows for security and content management on the site which was achieved using 
  > (html, c# (razor syntax), and css)
