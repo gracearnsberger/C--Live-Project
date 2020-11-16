@@ -149,47 +149,48 @@
 * ### Change Layout of the Change Password Page:
  > I added features and changed the layout of the Change Password page following the project styling and display the form. This form can only be accessed if the user is signed in under a subscribers account. This allows for security and content management on the site which was achieved using 
  > (html, c# (razor syntax), and css)
+ 
 
 ![Change Password Code Snippet](https://scontent.xx.fbcdn.net/v/t1.15752-0/p280x280/125553175_735660883692444_3978615744433834040_n.png?_nc_cat=105&ccb=2&_nc_sid=ae9488&_nc_ohc=o0pTxK42Or4AX96sBrG&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=d96552c04f88386e43302d10c6c2947d&oe=5FD67148)
 
 
+    <!--Create basic layout for Change Password page-->
+    <!--This page can only be accessed as a subscriber-->
+     @using (Html.BeginForm("ChangePassword", "Manage", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+    {
+      <div class="card-passwordchange-container" style="width: 22rem;">
+        <h2 class="change-password-title">@ViewBag.Title</h2>
+        <!--Set sizing and labels for change password fields-->
+        <div class="card-passwordchange-body">
+          @Html.AntiForgeryToken()
+          <hr />
+          @Html.ValidationSummary("", new { @class = "text-danger" })
+          <div class="form-group">
+            @Html.LabelFor(m => m.OldPassword, new { @class = "form-text-labels" })
+            <div class="col-md-12">
+              @Html.PasswordFor(m => m.OldPassword, new { @class = "form-control" })
+            </div>
+          </div>
+          <div class="form-group">
+            @Html.LabelFor(m => m.NewPassword, new { @class = "form-text-labels" })
+            <div class="col-md-12">
+              @Html.PasswordFor(m => m.NewPassword, new { @class = "form-control" })
+            </div>
+          </div>
+          <div class="form-group">
+            @Html.LabelFor(m => m.ConfirmPassword, new { @class = "form-text-labels" })
+            <div class="col-md-12">
+              @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
+            </div>
+          </div>
+          <div class="form-group">
+            <!--Submit Button for Change Password Field-->
+            <div class="change-password-submit col-md-8">
+              <input type="submit" value="Change password" class="btn btn-main" />
+            </div>
+          </div>
+        </div>
+      </div>
 
-<!--Create basic layout for Change Password page-->
-<!--This page can only be accessed as a subscriber-->
- @using (Html.BeginForm("ChangePassword", "Manage", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
-{
-  <div class="card-passwordchange-container" style="width: 22rem;">
-    <h2 class="change-password-title">@ViewBag.Title</h2>
-    <!--Set sizing and labels for change password fields-->
-    <div class="card-passwordchange-body">
-      @Html.AntiForgeryToken()
-      <hr />
-      @Html.ValidationSummary("", new { @class = "text-danger" })
-      <div class="form-group">
-        @Html.LabelFor(m => m.OldPassword, new { @class = "form-text-labels" })
-        <div class="col-md-12">
-          @Html.PasswordFor(m => m.OldPassword, new { @class = "form-control" })
-        </div>
-      </div>
-      <div class="form-group">
-        @Html.LabelFor(m => m.NewPassword, new { @class = "form-text-labels" })
-        <div class="col-md-12">
-          @Html.PasswordFor(m => m.NewPassword, new { @class = "form-control" })
-        </div>
-      </div>
-      <div class="form-group">
-        @Html.LabelFor(m => m.ConfirmPassword, new { @class = "form-text-labels" })
-        <div class="col-md-12">
-          @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
-        </div>
-      </div>
-      <div class="form-group">
-        <!--Submit Button for Change Password Field-->
-        <div class="change-password-submit col-md-8">
-          <input type="submit" value="Change password" class="btn btn-main" />
-        </div>
-      </div>
-    </div>
-  </div>
 
 
