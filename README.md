@@ -4,7 +4,7 @@
    -Below you will be able to view my assigned stories, code snippets, as well as code files.  
 
 * ### Change Layout of the Donor List Page & Add Modal:
- > I styled, organized, and exchanged data that displays on the donor list page of the website. I was able to use model, view, and controller pages to rearrange & change the information showing on the current page, edit some of it, and then display it all in a modal which will be called upon using a "details" button.
+ > I styled, organized, and exchanged data that displays on the donor list page of the website. I was able to use model, view, and controller pages to rearrange the information showing on the current page, edit some of it, and then display it all in a modal which will be called upon using a "details" button. The page originally had content that was touching the edges of the page and the table was displaying all information about each donor and was un-organized. I was able to create some spacing and organization to the table view, and put all expect the donors name and user name in a modal button. 
 
 ![Donor List View ](https://lh3.googleusercontent.com/-hpMJXJ5FLG4/X7LoIrCa5II/AAAAAAAAIVA/QvW9D8T3AiU2h9eOGENakTe1-RtW6qi6ACLcBGAsYHQ/s512/DonorListResult%2528webpage%2529png.png)![Donor List Modal View](https://lh3.googleusercontent.com/-czUwC8_wAEE/X7Lods3KI6I/AAAAAAAAIVY/bw4AFDEyVAcuU5tpfHEKOcpn0RG0cjzvACK8BGAsYHg/s512/DonorListModalResult%2528webpage%2529.png)
 
@@ -147,7 +147,7 @@
 
 
 * ### Change Layout of the Change Password Page:
- > I added features and changed the layout of the Change Password page following the project styling and display the form. This form can only be accessed if the user is signed in under a subscribers account. This allows for security and content management on the site which was achieved using 
+ > I added features and changed the layout of the Change Password page following the project styling and display the form. The form was set up with the input fields and I was able to put the form into a bootstrap card and style following the project styling guidlines using CSS. This form can only be accessed if the user is signed in under a subscribers account. This allows for security and content management on the site which was achieved using 
  > (html, c# (razor syntax), and css)
  
 
