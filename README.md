@@ -1,7 +1,8 @@
-## C# Live Project 
+## C# Live Project Summary
   -In a two-week project, I collaborated with my peers in order to develop a wide scale web application built using ASP .Net MVC, Entity Framework, and C#, HTML, CSS, & razor syntax. I started this live project when it was in the middle of its lifecycle, so I was given the opportunity to help add features, debug, and refactor. With daily scrum meetings, I was able to get experience with a real life software engineering project simulation by gaining experience of peer collaboration, project management, version control, branch merging, and framework. The overall goal of this project is to use the web application as a content management service for a theater company in order to easily manage what content is displayed on their site and create different account access management under different logins on the site such as (admin, subscriber, and member).
  
    -Below you will be able to view my assigned stories, code snippets, as well as code files.  
+   -For my full project code files visit: https://github.com/gracearnsberger/C-Live-Project-Code
 
 * ### Change Layout of the Donor List Page & Add Modal:
  > I styled, organized, and exchanged data that displays on the donor list page of the website. I was able to use model, view, and controller pages to rearrange the information showing on the current page, edit some of it, and then display it all in a modal which will be called upon using a "details" button. The page originally had content that was touching the edges of the page and the table was displaying all information about each donor and was un-organized. I was able to create some spacing and organization to the table view, and put all expect the donors name and user name in a modal button. 
@@ -194,4 +195,3 @@
 
 
 
-For my full project code files visit: https://github.com/gracearnsberger/C-Live-Project-Code
